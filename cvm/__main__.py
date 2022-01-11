@@ -12,8 +12,8 @@ import xmlrpc.client
 ALIASES = {"20226": "20327"}
 
 rpc_server = 'https://rpc-mj.intr/'
-rpc_user = os.environ['CVM_USER']
-rpc_pass = os.environ['CVM_PASS']
+rpc_user = os.getenv('CVM_USER', "")
+rpc_pass = os.getenv('CVM_PASS', "")
 
 class my_https_transport(xmlrpc.client.SafeTransport):
     def __init__(self, use_datetime=0):
